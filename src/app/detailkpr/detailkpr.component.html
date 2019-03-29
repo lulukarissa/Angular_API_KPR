@@ -1,0 +1,52 @@
+<div *ngIf="kpr">
+
+  <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">Details</h5>
+      <table class="table table-hover">
+        <tr>
+          <th>Harga</th>
+          <td>Rp {{kpr.harga | number: '.2-2'}}</td>
+        </tr>
+        <tr>
+          <th>DP</th>
+          <td>{{kpr.dp}} %</td>
+        </tr>
+        <tr>
+          <th>Bunga</th>
+          <td>{{kpr.bunga}} % / tahun</td>
+        </tr>
+        <tr>
+          <th>Tenor</th>
+          <td>{{kpr.tenor}} tahun</td>
+        </tr>
+      </table>
+      <a href="#" class="btn btn-info" (click)="goBack()">GO BACK</a>
+    </div>
+  </div>
+
+  <br />
+  <div class="content-table" *ngIf="kprdetail">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr style="text-align: center">
+          <th scope="col">Bulan</th>
+          <th scope="col">Pokok</th>
+          <th scope="col">Bunga</th>
+          <th scope="col">Pelunasan Pokok</th>
+          <th scope="col">Tagihan</th>
+          <th scope="col">Sisa Pokok</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr *ngFor="let kprdetail of kprdetail; let i = index">
+          <th style="text-align: center">{{kprdetail.bulan}}</th>
+          <td>Rp <span style="float: right">{{kprdetail.pokok | number: '.2-2'}}</span></td>
+          <td>Rp <span style="float: right">{{kprdetail.bunga | number: '.2-2'}}</span></td>
+          <td>Rp <span style="float: right">{{kprdetail.pelunasanpokok | number: '.2-2'}}</span></td>
+          <td>Rp <span style="float: right">{{kprdetail.tagihan | number: '.2-2'}}</span></td>
+          <td>Rp <span style="float: right">{{kprdetail.sisapokok | number: '.2-2'}}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

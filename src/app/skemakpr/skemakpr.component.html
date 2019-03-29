@@ -1,0 +1,33 @@
+<h4>
+  List KPR
+</h4>
+<hr />
+
+<div class="content-table">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr style="text-align: center">
+        <th scope="col">Nomor</th>
+        <!-- <th scope="col">ID</th> -->
+        <th scope="col">Harga</th>
+        <th scope="col">DP (%)</th>
+        <th scope="col">Nominal DP</th>
+        <th scope="col">Bunga (%)</th>
+        <th scope="col">Tenor (Tahun)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kpr of kpr; let i = index" routerLink="/detailkpr/{{kpr.idskema}}">
+        <th style="text-align: center">{{i+1}}</th>
+        <!-- <th scope="row">
+          {{kpr.idskema}}
+        </th> -->
+        <td>Rp <span style="float: right">{{kpr.harga | number: '.2-2'}}</span></td>
+        <td style="text-align: center">{{kpr.dp}}</td>
+        <td>Rp <span style="float: right">{{(kpr.dp/100)*kpr.harga | number: '.2-2'}}</span></td>
+        <td style="text-align: center">{{kpr.bunga}}</td>
+        <td style="text-align: center">{{kpr.tenor}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
